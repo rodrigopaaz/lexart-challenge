@@ -3,7 +3,7 @@ const cheerio = require('cheerio')
 const fs = require('fs')
 
 const FreeMarketProducts = async (category) => {
-    const {data} = await axios.get('https://lista.mercadolivre.com.br/geladeira')
+    const {data} = await axios.get(`https://lista.mercadolivre.com.br/${category}`)
     const $ = cheerio.load(data)
     const allProducts = []
     $('ol li').each((e,i) => {
@@ -20,8 +20,8 @@ const FreeMarketProducts = async (category) => {
     return allProducts
 }
 
-const buscapeProducts = async () => {
-    const {data} = await axios.get('https://www.buscape.com.br/geladeira')
+const buscapeProducts = async (category) => {
+    const {data} = await axios.get(`https://www.buscape.com.br/${category}`)
     const $ = cheerio.load(data)
     const allProducts = []
     $('div div div div div').each((e,i) => {
@@ -44,8 +44,8 @@ const buscapeProducts = async () => {
 
 
 
-const editRequest = async() => {
-    const response1 =     await FreeMarketProducts()
+const editRequest = async(category) => {
+    const response1 =     await FreeMarketProducts(category)
     fs.writeFile('freeMarket.json', JSON.stringify(response1), (err) => {
         if(err) console.log(err);
         else {
@@ -53,7 +53,7 @@ const editRequest = async() => {
         }
     })
 
-    const response = await buscapeProducts()
+    const response = await buscapeProducts(category)
     fs.writeFile('buscape.json', JSON.stringify(response), (err) => {
         if(err) console.log(err);
         else {
@@ -62,4 +62,4 @@ const editRequest = async() => {
     })
 }
 
-editRequest()
+editRequest('celular')
