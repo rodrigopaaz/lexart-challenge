@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             type: DataTypes.STRING,
           },
-          category_id: {
+          categoryId: {
             allowNull: false,
             type: DataTypes.INTEGER,
           },
-          site_id: {
+          siteId: {
             allowNull: false,
             type: DataTypes.INTEGER,
           },
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             type: DataTypes.FLOAT,
           },
-          image_url: {
+          imageUrl: {
             allowNull: false,
             type: DataTypes.STRING,
           }
