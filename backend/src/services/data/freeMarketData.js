@@ -12,13 +12,11 @@ const FreeMarketProducts = async (category) => {
   $("ol li").each(async (e, i) => {
     const product = {
       title: $(i).find(".ui-search-item__group a h2").text(),
-      price: Number(
-        $(i)
-          .find(".ui-search-price__second-line .price-tag .price-tag-amount")
-          .text()
-          .split("R$")
-          .slice(1)[0]
-      ),
+      price: $(i)
+        .find(".ui-search-price__second-line .price-tag .price-tag-amount")
+        .text()
+        .split("R$")
+        .slice(1)[0],
       categoryId: id,
       siteId: 1,
       imageUrl: $(i).find(".ui-search-result__image div img").data("src"),
@@ -27,7 +25,7 @@ const FreeMarketProducts = async (category) => {
     return product;
   });
   const filteredProducts = allProducts.filter(
-    (e, i) => e.price && typeof e.price !== "NaN" && e.title && e.imageUrl
+    (e, i) => e.price && typeof e.title && e.imageUrl
   );
 
   return filteredProducts;
