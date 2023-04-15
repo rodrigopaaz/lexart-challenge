@@ -2,8 +2,8 @@ const { productService } = require("../services");
 const { createMany } = require("../services/product.service");
 
 const createCategory = async (req, res) => {
-  const { site, category } = req.body;
-  const data = await createMany(site, category);
+  const { site, category, search } = req.body;
+  const data = await createMany(site, category, search);
   return res.status(201).json(data);
 };
 

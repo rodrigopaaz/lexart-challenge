@@ -2,12 +2,12 @@ const { Category } = require("../../models");
 const { default: axios } = require("axios");
 const cheerio = require("cheerio");
 
-const buscapeProducts = async (category) => {
+const buscapeProducts = async (category, search) => {
+  const buscapeCategory = `search?q=${category} ${search}`;
   const siteUrl = `https://buscape.com.br`;
-  const { data } = await axios.get(`${siteUrl}/${category}`);
+  const { data } = await axios.get(`${siteUrl}/${buscapeCategory}`);
   const $ = cheerio.load(data);
   const allProducts = [];
-  const links = [];
   const { id } = await Category.findOne({ where: { name: category } });
 
   $(".col-lg-9 div").each(async (e, i) => {

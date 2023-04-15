@@ -2,9 +2,11 @@ const { Category } = require("../../models");
 const { default: axios } = require("axios");
 const cheerio = require("cheerio");
 
-const FreeMarketProducts = async (category) => {
+const FreeMarketProducts = async (category, search = "") => {
+  const meliCategory = `${category} ${search}`;
+  console.log(meliCategory, "CATEGORY");
   const { data } = await axios.get(
-    `https://lista.mercadolivre.com.br/${category}`
+    `https://lista.mercadolivre.com.br/${meliCategory}`
   );
   const { id } = await Category.findOne({ where: { name: category } });
   const $ = cheerio.load(data);
