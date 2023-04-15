@@ -10,7 +10,7 @@ function App() {
   const getAll = async (site, category) => {
     /*   await Axios.get("http://localhost:3003/product");
      */
-    const { data } = await Axios.post("http://localhost:3003/product", {
+    const { data } = await Axios.post("http://localhost:3006/product", {
       site: site,
       category: category,
     });
