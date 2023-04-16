@@ -8,24 +8,33 @@ function App() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
 
-  const get = async () => {
-    const test = await Axios.get("http://localhost:3003/product");
-    return test;
-  };
-
-  const post = async () => {
-    /*   await Axios.get("http://localhost:3003/product");
-     */
-    //const buscapeCategory = `search?q=${category} ${postQuery}`;
-
+  const post = async (url) => {
     const { data } = await Axios.post("http://localhost:3006/product", {
-      site,
+      site: url,
       category,
       search,
     });
-    setProducts(JSON.parse(data));
-    return data;
+    return JSON.parse(data);
   };
+
+  const postSite = async () => {
+    if (site === "mercado livre") {
+      const data = await post(site);
+      setProducts(data);
+      return data;
+    }
+    if (site === "buscape") {
+      const data = await post(site);
+      setProducts(data);
+      return data;
+    }
+    const buscape = await post("buscape");
+    const meli = await post("mercado livre");
+    setProducts([...buscape, ...meli]);
+  };
+
+  const siteArray = site.replace(/\s/g, "").split(",");
+  console.log(siteArray);
 
   return (
     <div className="App">
@@ -50,7 +59,7 @@ function App() {
           <option value="" disabled selected hidden>
             Categorias
           </option>
-          <option value="Todas">Todas</option>
+          <option value="ambos">Todas</option>
           <option value="mercado livre">MercadoLivre</option>
           <option value="buscape">Buscapé</option>
         </select>
@@ -62,16 +71,19 @@ function App() {
           onChange={({ target: { value } }) => setSearch(value)}
         />
       </label>
-      <button type="button" onClick={async () => await post()}>
+      <button type="button" onClick={async () => await postSite()}>
         ok
       </button>
       {
         <div>
           {products.map((product) => (
             <div>
-              <p>{product.title}</p>
-              <p>{`R$${product.price}`}</p>
-              <img src={product.imageUrl} alt="productImage" />
+              <p>{product.siteId === 1 ? "Mercado Livre" : "Buscapé"}</p>
+              <div>
+                <p>{product.title}</p>
+                <p>{`R$${product.price}`}</p>
+                <img src={product.imageUrl} alt="productImage" />
+              </div>
             </div>
           ))}
         </div>

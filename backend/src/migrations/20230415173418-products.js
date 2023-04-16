@@ -33,6 +33,16 @@ module.exports = {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
+      search_id: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "search",
+          key: "id",
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      },
       price: {
         allowNull: false,
         type: Sequelize.STRING,

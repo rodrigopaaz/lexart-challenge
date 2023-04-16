@@ -2,7 +2,10 @@ const { Category } = require("../../models");
 const { default: axios } = require("axios");
 const cheerio = require("cheerio");
 
-const FreeMarketProducts = async (category, search = "") => {
+const FreeMarketProducts = async (
+  category,
+  { id: searchId, description: search = "" }
+) => {
   const meliCategory = `${category} ${search}`;
   console.log(meliCategory, "CATEGORY");
   const { data } = await axios.get(
@@ -21,6 +24,7 @@ const FreeMarketProducts = async (category, search = "") => {
         .slice(1)[0],
       categoryId: id,
       siteId: 1,
+      searchId,
       imageUrl: $(i).find(".ui-search-result__image div img").data("src"),
     };
     allProducts.push(product);
