@@ -28,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING,
       },
+      linkUrl: {
+        allowNull: true,
+        type: DataTypes.TEXT,
+      },
     },
     { timestamps: false, underscored: true, tableName: "products" }
   );

@@ -13,9 +13,16 @@ export default function ItemCard({ product }) {
         <div>
           <p>{product.title}</p>
           <p>{`R$${product.price}`}</p>
-          <a href={product.linkUrl}>Ir a web</a>
         </div>
       </div>
+      <a
+        className="link"
+        target="_blank"
+        rel={"pro noreferrer"}
+        href={product.linkUrl}
+      >
+        Ir a web
+      </a>
     </div>
   );
 }

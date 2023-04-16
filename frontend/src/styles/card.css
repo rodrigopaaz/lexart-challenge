@@ -25,11 +25,20 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-
-    
 }
 
 .div__item__card div:nth-child(2){
     display: flex;
     flex-direction: column;
+}
+
+.link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 15em;
+    height: 3em;
+    color: white;
+    background-color: blue;
 }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./styles/app.css";
 import Axios from "axios";
 import ItemCard from "./components/ItemCard";
+import Loading from "./components/Loading";
 
 function App() {
   const [site, setSite] = useState("");
@@ -10,7 +11,7 @@ function App() {
   const [search, setSearch] = useState("");
 
   const post = async (url) => {
-    const { data } = await Axios.post("http://localhost:3006/product", {
+    const { data } = await Axios.post("http://localhost:3000/product", {
       site: url,
       category,
       search,
@@ -70,17 +71,24 @@ function App() {
             onChange={({ target: { value } }) => setSearch(value)}
           />
         </label>
-        <button type="button" onClick={async () => await toogleSites()}>
+        <button
+          type="button"
+          onClick={async () => {
+            setProducts([]);
+            await toogleSites();
+          }}
+        >
           Search
         </button>
       </div>
-      {
-        <div className="div__items">
-          {products.map((item) => (
-            <ItemCard product={item} />
-          ))}
-        </div>
-      }
+
+      <div className="div__items">
+        {products.length ? (
+          products.map((item) => <ItemCard product={item} />)
+        ) : (
+          <Loading />
+        )}
+      </div>
     </div>
   );
 }

@@ -51,6 +51,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
+      link_url: {
+        allowNull: true,
+        type: Sequelize.TEXT,
+      },
     });
     return Products;
   },
