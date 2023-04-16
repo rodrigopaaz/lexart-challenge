@@ -31,7 +31,7 @@ const buscapeProducts = async (
           .slice(3)
           .split("R$")[0]
           .split(",00")[0],
-        linkUrl: getLink,
+        linkUrl: siteUrl + getLink,
       };
       allProducts.push(product);
       return product;
@@ -43,8 +43,7 @@ const buscapeProducts = async (
 
   const getValidImage = () => {
     return filteredProducts.map(async ({ linkUrl }, i) => {
-      const url = "https://buscape.com.br";
-      const fileData = await axios.get(url + linkUrl); //
+      const fileData = await axios.get(linkUrl); //
       const $$ = cheerio.load(fileData.data);
       const imageSrc = $$(".ProductPageBody_ContentBody__De_1M")
         .find("div:nth-child(2) img")
