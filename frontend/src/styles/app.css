@@ -15,7 +15,7 @@
     width: 60%;
     align-items: center;
     justify-content: space-evenly;
-    height: 50vh;
+    height: 30vh;
 }
 
 .div__inputs select{
@@ -85,9 +85,4 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.div__items div img{
-    width: 80%;
-    height: 25em;
 }

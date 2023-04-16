@@ -5,7 +5,9 @@ export default function ItemCard({ product }) {
   console.log(product);
   return (
     <div className="div__item__card">
-      <img src={product.imageUrl} alt="productImage" />
+      <div className="imagem">
+        <img src={product.imageUrl} alt="productImage" />
+      </div>
       <div>
         <p className="product__title">
           {product.siteId === 1 ? "Mercado Livre" : "Buscapé"}
