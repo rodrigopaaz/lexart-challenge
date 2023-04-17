@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/card.css";
 
 export default function ItemCard({ product }) {
-  console.log(product);
   return (
     <div className="div__item__card">
       <div className="imagem">

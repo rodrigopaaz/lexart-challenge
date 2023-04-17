@@ -30,32 +30,33 @@ export default function Inputs() {
 
   return (
     <div className="div__inputs">
-      <label htmlFor="site">
-        <select
-          type="text"
-          onChange={({ target: { value } }) => setCategory(value)}
-        >
-          <option value="" disabled selected hidden>
-            Web
-          </option>
-          <option value="geladeira">Geladeira</option>
-          <option value="tv">TV</option>
-          <option value="celular">Celular</option>
-        </select>
-      </label>
       <label htmlFor="category">
         <select
           type="text"
           onChange={({ target: { value } }) => setSite(value)}
         >
           <option value="" disabled selected hidden>
-            Categorias
+            Web
           </option>
           <option value="ambos">Todas</option>
           <option value="mercado livre">MercadoLivre</option>
           <option value="buscape">Buscapé</option>
         </select>
       </label>
+      <label htmlFor="site">
+        <select
+          type="text"
+          onChange={({ target: { value } }) => setCategory(value)}
+        >
+          <option value="" disabled selected hidden>
+            Categorias
+          </option>
+          <option value="geladeira">Geladeira</option>
+          <option value="tv">TV</option>
+          <option value="celular">Celular</option>
+        </select>
+      </label>
+
       <label type="text">
         <input
           placeholder="Type your search here"
