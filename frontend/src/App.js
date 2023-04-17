@@ -7,7 +7,7 @@ import AppContext from "./context/Context";
 
 function App() {
   const { products, isLoading } = useContext(AppContext);
-
+  console.log(products);
   return (
     <div className="App">
       <Inputs />

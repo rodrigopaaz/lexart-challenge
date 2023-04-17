@@ -21,7 +21,7 @@
 }
 
 .div__items div img{
-    width: 80%;
+    max-width: 80%;
 }
 .div__item__card div{
     display: flex;
