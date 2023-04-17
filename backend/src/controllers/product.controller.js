@@ -1,10 +1,34 @@
 const { productService } = require("../services");
+const { Search } = require("../models");
 const { createMany } = require("../services/product.service");
 
 const createCategory = async (req, res) => {
-  const { site, category } = req.body;
-  const data = await createMany(site, category);
-  return res.status(201).json(data);
+  const { site, category, search } = req.body;
+  const dataBase = await productService.findAll(search);
+
+  const checkProduct = dataBase.find((item) => {
+    return (
+      item.search.description === search &&
+      item.categoryName.name === category &&
+      item.siteName.name === site
+    );
+  });
+
+  if (!checkProduct) {
+    const searchData = await Search.create({
+      description: search,
+    });
+
+    const data = await createMany(site, category, searchData);
+    return res.status(201).json(data);
+  }
+  const filteredData = dataBase.filter(
+    (product) =>
+      product.search.description === search &&
+      product.categoryName.name === category &&
+      product.siteName.name === site
+  );
+  return res.status(201).json(JSON.stringify(filteredData));
 };
 
 const findAll = async (req, res) => {

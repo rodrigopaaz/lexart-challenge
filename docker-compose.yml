@@ -19,12 +19,12 @@ services:
     # Restarta a imagem caso algo a faça parar
     restart: always
     # Diretório padrão de execução
-    working_dir: /front-end
+    working_dir: /app/frontend
     # Lista de volumes (diretórios) mapeados de fora para dentro do container
     volumes:
       # Monta o diretório atual, com todos os dados do projeto, 
       # dentro do diretório /app
-      - ./:/front-end
+      - ./:/app/
     # Lista de serviços do qual este serviço depende
     depends_on:
       # Precisa do banco funcionando antes de subir o node
@@ -57,17 +57,18 @@ services:
     tty: true
     # Mesmo que `docker run -i`
     stdin_open: true
+    platform: linux/x86_64
     # Substitui o comando padrão da imagem do node
     command: bash
     # Restarta a imagem caso algo a faça parar
     restart: always
     # Diretório padrão de execução
-    working_dir: /back-end
+    working_dir: /app/backend
     # Lista de volumes (diretórios) mapeados de fora para dentro do container
     volumes:
       # Monta o diretório atual, com todos os dados do projeto, 
       # dentro do diretório /app
-      - ./:/back-end
+      - ./:/app/
     # Lista de serviços do qual este serviço depende
     depends_on:
       # Precisa do banco funcionando antes de subir o node
@@ -83,7 +84,7 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_HOST: db # Nome do service logo abaixo
       JWT_SECRET: secretJWT
-      API_HOST: 'node'
+      API_HOST: 'localhost'
       API_PORT: 3000
       NODE_ENV: 'development'
     networks:

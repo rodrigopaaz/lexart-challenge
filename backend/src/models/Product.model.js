@@ -28,14 +28,19 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING,
       },
+      linkUrl: {
+        allowNull: true,
+        type: DataTypes.TEXT,
+      },
     },
     { timestamps: false, underscored: true, tableName: "products" }
   );
   Product.associate = (models) => {
-    Product.belongsTo(models.Site, { foreignKey: "siteId", as: "site" });
+    Product.belongsTo(models.Site, { foreignKey: "siteId", as: "siteName" });
+    Product.belongsTo(models.Search, { foreignKey: "searchId", as: "search" });
     Product.belongsTo(models.Category, {
-      foreignKey: "CategoryId",
-      as: "category",
+      foreignKey: "categoryId",
+      as: "categoryName",
     });
   };
   return Product;
