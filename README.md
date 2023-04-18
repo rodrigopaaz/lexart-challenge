@@ -16,44 +16,90 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 <details>
 
-```bash
-# Clone este repositório
-$ git clone https://github.com/rodrigopaaz/lexart-challenge
-# Acesse a pasta do projeto no terminal/cmd
-$ cd /backend
-# Instale as dependências
-$ npm install
-# Execute a aplicação em modo de desenvolvimento
-$ npm start
-# O servidor inciará na porta:3001 - acesse http://localhost:3001
+## 🚀 Setup para rodar a aplicação
+Para rodar localmente esta aplicação, siga os passos abaixo:
 
-Rode a aplicaçãor
-# Clone este repositório
-$ git clone https://github.com/rodrigopaaz/lexart-challenge
-# Acesse a pasta do projeto no terminal/cmd
-$ cd ../frontend
-# Instale as dependências
-$ npm install
-# Execute a aplicação em modo de desenvolvimento
-$ npm start
-# O servidor inciará na porta:3001 - acesse http://localhost:3001
+1.  Abra seu terminal e crie uma pasta (O projeto será instalado dentro dela):
 
-#Caso queira utilizar o Docker, 
-# Clone este repositório
-$ git clone https://github.com/rodrigopaaz/lexart-challenge
-# Acesse a pasta do projeto no terminal/cmd
-$ cd lexart-challenge
-# Rode os container com o docker-compose
-$ docker-compose up -d
+```
+mkdir repositorio
+```
+
+2.  Clone este repositório:
+
+```
+cd repositorio
+git clone https://github.com/rodrigopaaz/lexart-challenge
+```
+
+3.  Instale as dependências (pode levar alguns minutos):
+
+```
+cd lexart-challenge/backend
+npm install
+npm start
+
+Abra um novo terminal
+cd frontend
+npm install
+```
+
+
+
+4.  Inicie a aplicação:
+
+```
+npm start
+```
+
+Para rodar localmente esta aplicação com docker, siga os passos abaixo:
+
+
+1.  Abra seu terminal e crie uma pasta (O projeto será instalado dentro dela):
+
+```
+mkdir repositorio
+```
+
+2.  Clone este repositório:
+
+```
+cd repositorio
+git clone https://github.com/rodrigopaaz/lexart-challenge
+```
+3.  Instale as dependências (pode levar alguns minutos):
+
+
+```
+npm install
+```
+
+4. Rode os containers
+
+```
+cd repositorio
+docker-compose up -d
+```
+5. Acesse os containers
+
+6. Nos respectivos containers digite
+
+```
+npm start
+```
 ...
+
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
--  **[Node.js](https://nodejs.org/en/)**
+-   **[Node.js](https://nodejs.org/en/)**
+-   **[TypeScript](https://www.typescriptlang.org/)**
 -   **[Express](https://expressjs.com/)**
 -   **[Sequelize](https://sequelize.org/)**
 -   **[dotENV](https://github.com/motdotla/dotenv)**
 -   **[Docker](https://www.docker.com/)**
 -   **[MySQL](https://www.mysql.com/)**
+-   **[Joi](https://github.com/hapijs/joi)**
+-   **[Jwt](https://jwt.io/)**
 -   **[Mocha](https://mochajs.org/)**
 -   **[Chai](https://www.chaijs.com/)**
