@@ -67,21 +67,21 @@ mkdir repositorio
 cd repositorio
 git clone https://github.com/rodrigopaaz/lexart-challenge
 ```
-3.  Instale as dependências (pode levar alguns minutos):
-
-
-```
-npm install
-```
-
-4. Rode os containers
+3. Rode os containers
 
 ```
 cd repositorio
 docker-compose up -d
 ```
-5. Acesse os containers
+4. Acesse os containers
 
+5.  Instale as dependências (pode levar alguns minutos):
+
+
+```
+npm install
+```
+  
 6. Nos respectivos containers digite
 
 ```
