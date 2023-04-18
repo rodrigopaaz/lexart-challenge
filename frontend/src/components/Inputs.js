@@ -72,6 +72,7 @@ export default function Inputs() {
       </label>
       <button
         type="button"
+        disabled={!category || !site}
         onClick={async () => {
           setProducts([]);
           await siteSwitch();
