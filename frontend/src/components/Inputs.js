@@ -1,12 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import post from "../services/requests";
 import AppContext from "../context/Context";
 
 export default function Inputs() {
-  const [site, setSite] = useState("");
-  const [category, setCategory] = useState("");
-  const [search, setSearch] = useState("");
-  const { setProducts, setIsLoading } = useContext(AppContext);
+  const {
+    setProducts,
+    setIsLoading,
+    category,
+    setCategory,
+    search,
+    setSearch,
+    site,
+    setSite,
+  } = useContext(AppContext);
 
   const siteSwitch = async () => {
     setIsLoading(true);
