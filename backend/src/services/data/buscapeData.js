@@ -32,7 +32,7 @@ const buscapeProducts = async (
         categoryId: id,
         siteId: 2,
         searchId,
-        price: itemPrice,
+        price: itemPrice.parseInt(),
         linkUrl: siteUrl + getLink,
       };
       allProducts.push(product);
