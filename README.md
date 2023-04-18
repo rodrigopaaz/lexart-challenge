@@ -93,13 +93,10 @@ npm start
 
 As seguintes ferramentas foram usadas na construção do projeto:
 -   **[Node.js](https://nodejs.org/en/)**
--   **[TypeScript](https://www.typescriptlang.org/)**
 -   **[Express](https://expressjs.com/)**
 -   **[Sequelize](https://sequelize.org/)**
 -   **[dotENV](https://github.com/motdotla/dotenv)**
 -   **[Docker](https://www.docker.com/)**
 -   **[MySQL](https://www.mysql.com/)**
--   **[Joi](https://github.com/hapijs/joi)**
--   **[Jwt](https://jwt.io/)**
 -   **[Mocha](https://mochajs.org/)**
 -   **[Chai](https://www.chaijs.com/)**
