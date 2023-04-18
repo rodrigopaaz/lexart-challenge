@@ -21,13 +21,11 @@ const FreeMarketProducts = async (
         .find(".ui-search-price__second-line .price-tag .price-tag-amount")
         .text()
         .split("R$")
-        .slice(1)[0]
-        .replace(".", "")
-        .replace(",", "."),
+        .slice(1)[0],
       categoryId: id,
       siteId: 1,
       searchId,
-      linkUrl: getLink.parseInt(),
+      linkUrl: getLink,
       imageUrl: $(i).find(".ui-search-result__image div img").data("src"),
     };
     allProducts.push(product);

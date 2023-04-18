@@ -16,23 +16,21 @@ const buscapeProducts = async (
   $(".col-lg-9 div").each(async (e, i) => {
     const getLink =
       $(i).find(".SearchCard_ProductCard_Inner__7JhKb").attr("href") || "";
-    const itemPrice = $(i)
-      .find(
-        "a .SearchCard_ProductCard_Description__fGXI3 .Text_Text__h_AF6.Text_MobileHeadingS__Zxam2"
-      )
-      .text()
-      .slice(3)
-      .split("R$")[0]
-      .split(",00")[0]
-      .replace(".", "")
-      .replace(",", ".");
+
     if (!getLink.includes("buscape")) {
       const product = {
         title: $(i).find("a h2").text(),
         categoryId: id,
         siteId: 2,
         searchId,
-        price: itemPrice.parseInt(),
+        price: $(i)
+          .find(
+            "a .SearchCard_ProductCard_Description__fGXI3 .Text_Text__h_AF6.Text_MobileHeadingS__Zxam2"
+          )
+          .text()
+          .slice(3)
+          .split("R$")[0]
+          .split(",00")[0],
         linkUrl: siteUrl + getLink,
       };
       allProducts.push(product);
