@@ -45,7 +45,7 @@ $ git clone https://github.com/rodrigopaaz/lexart-challenge
 $ cd lexart-challenge
 # Rode os container com o docker-compose
 $ docker-compose up -d
-
+...
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
