@@ -26,8 +26,8 @@ $ npm install
 # Execute a aplicação em modo de desenvolvimento
 $ npm start
 # O servidor inciará na porta:3001 - acesse http://localhost:3001
-
-###Rode a aplicaçãor
+...
+Rode a aplicaçãor
 # Clone este repositório
 $ git clone https://github.com/rodrigopaaz/lexart-challenge
 # Acesse a pasta do projeto no terminal/cmd
@@ -38,7 +38,7 @@ $ npm install
 $ npm start
 # O servidor inciará na porta:3001 - acesse http://localhost:3001
 #Caso queira utilizar o Docker, 
-...
+
 # Clone este repositório
 $ git clone https://github.com/rodrigopaaz/lexart-challenge
 # Acesse a pasta do projeto no terminal/cmd
