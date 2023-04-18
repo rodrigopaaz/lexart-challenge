@@ -26,7 +26,7 @@ $ npm install
 # Execute a aplicação em modo de desenvolvimento
 $ npm start
 # O servidor inciará na porta:3001 - acesse http://localhost:3001
-...
+
 Rode a aplicaçãor
 # Clone este repositório
 $ git clone https://github.com/rodrigopaaz/lexart-challenge
@@ -45,7 +45,7 @@ $ git clone https://github.com/rodrigopaaz/lexart-challenge
 $ cd lexart-challenge
 # Rode os container com o docker-compose
 $ docker-compose up -d
-
+...
 </details>
 
 ## 🛠 Tecnologias
