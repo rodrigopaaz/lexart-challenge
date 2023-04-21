@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST
+const HOST = process.env.HOST || 'lexart-challenge-83h9aq2wa-rodrigopaaz.vercel.app'
 
 
 const post = async (site, category, search) => {
