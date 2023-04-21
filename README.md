@@ -1,11 +1,65 @@
-# lexart-challenge
+<h1 align="center">Lex Art Challenge</h1>
 
-Software Engineering
+<h3 align="center">Neste projeto Desenvolvi uma webscraping que conecta Mercado Livre e Buscapé, após obter os dados estes são armazenados em um banco de dados, caso seja feita uma busca já relizada anteriormente os dados retornados serão os que já estão armazenados no banco</h3>
 
-1-Create a product search engine that connects to the free market and Buscapé (web scrap) page.<br>
-a-Through a drop-down menu we can choose the categories: Mobile, Refrigerator, TV.<br>
-b-Through a drop-down menu we can choose the site: Mercado Livre / Buscapé<br>
-c-Create a free text entry to search for products<br>
-d-After searching the list of products that will appear on the screen with: Photo, description, category, price and website where the information was obtained<br>
-e-Store results in database after user search. If you repeat the same search (only take into account the category and web filters to store), show what leaves<br> the base and don't undo it for the webs.<br>
-f-Host the solution online on a free server like heroku or some other alternative. <br>
+## 💻 Sobre o projeto
+
+Uma aplicação que permite a busca de dados no Mercado livre ou buscapé.
+
+---
+## 🚀 Como executar o projeto
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+<details>
+
+## 🚀 Setup para rodar a aplicação
+Para rodar localmente esta aplicação, siga os passos abaixo:
+
+1.  Abra seu terminal e crie uma pasta (O projeto será instalado dentro dela):
+
+```
+mkdir repositorio
+```
+
+2.  Clone este repositório:
+
+```
+cd repositorio
+git clone https://github.com/rodrigopaaz/lexart-challenge
+```
+
+3.  Instale as dependências (pode levar alguns minutos):
+
+```
+cd lexart-challenge/backend
+npm install
+npm start
+
+Abra um novo terminal
+cd frontend
+npm install
+```
+
+
+
+4.  Inicie a aplicação:
+
+```
+npm start
+```
+
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+-   **[Node.js](https://nodejs.org/en/)**
+-   **[Express](https://expressjs.com/)**
+-   **[Sequelize](https://sequelize.org/)**
+-   **[dotENV](https://github.com/motdotla/dotenv)**
+-   **[Docker](https://www.docker.com/)**
+-   **[MySQL](https://www.mysql.com/)**
+-   **[Mocha](https://mochajs.org/)**
+-   **[Chai](https://www.chaijs.com/)**
