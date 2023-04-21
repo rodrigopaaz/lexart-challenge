@@ -7,7 +7,9 @@
     "prestart": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "start": "nodemon src/server.js",
     "test": "mocha tests/**/*.test.js --exit",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
+    "vercel-build": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+
   },
   "keywords": [],
   "author": "",
