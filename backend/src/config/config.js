@@ -7,6 +7,7 @@ const config = {
   password: process.env.MYSQL_PASSWORD || "password",
   host: process.env.MYSQL_HOST,
   port: process.env.MYSQL_PORT || 3306,
+  dialectModule: "mysql2",
   dialect: "mysql",
 };
 
