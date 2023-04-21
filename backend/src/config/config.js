@@ -8,6 +8,7 @@ const config = {
   host: process.env.MYSQL_HOST,
   port: process.env.MYSQL_PORT || 3306,
   dialect: "mysql",
+  dialectModule: require('mysql2'),
 };
 
 module.exports = {
