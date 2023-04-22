@@ -1,13 +1,9 @@
 import Axios from "axios";
-require("dotenv").config();
-
-const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST
 
 
-const post = async (site, category, search) => {
+const post = async (site, category, search, host) => {
   try {
-    const { data } = await Axios.post(`http://${HOST}:${PORT}/product`, {
+    const { data } = await Axios.post(`https://${host}/product`, {
       site,
       category,
       search,
