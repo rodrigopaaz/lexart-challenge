@@ -3,6 +3,7 @@ import post from "../services/requests";
 import AppContext from "../context/Context";
 
 export default function Inputs() {
+  console.log(process.env.REACT_APP_HOST)
   const {
     setProducts,
     setIsLoading,
@@ -16,20 +17,21 @@ export default function Inputs() {
 
   const siteSwitch = async () => {
     setIsLoading(true);
+    const host = process.env.REACT_APP_HOST
     if (site === "mercado livre") {
-      const data = await post(site, category, search);
+      const data = await post(site, category, search, host);
       setProducts(data);
       setIsLoading(false);
       return data;
     }
     if (site === "buscape") {
-      const data = await post(site, category, search);
+      const data = await post(site, category, search, host);
       setProducts(data);
       setIsLoading(false);
       return data;
     }
-    const buscape = await post("buscape", category, search);
-    const meli = await post("mercado livre", category, search);
+    const buscape = await post("buscape", category, search, host);
+    const meli = await post("mercado livre", category, search, host);
     setProducts([...buscape, ...meli]);
     setIsLoading(false);
   };
