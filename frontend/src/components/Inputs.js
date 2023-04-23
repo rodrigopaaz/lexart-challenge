@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
-import post from '../services/requests'
-import AppContext from '../context/Context'
+import React, { useContext } from 'react';
+import post from '../services/requests';
+import AppContext from '../context/Context';
 
-export default function Inputs () {
-  console.log(process.env.REACT_APP_HOST)
+export default function Inputs() {
   const {
     setProducts,
     setIsLoading,
@@ -12,29 +11,30 @@ export default function Inputs () {
     search,
     setSearch,
     site,
-    setSite
-  } = useContext(AppContext)
+    setSite,
+  } = useContext(AppContext);
 
   const siteSwitch = async () => {
-    setIsLoading(true)
-    const host = process.env.REACT_APP_HOST
+    
+    return(setIsLoading(true);
+    const host = process.env.REACT_APP_HOST;
     if (site === 'mercado livre') {
-      const data = await post(site, category, search, host)
-      setProducts(data)
-      setIsLoading(false)
-      return data
+      const data = await post(site, category, search, host);
+      setProducts(data);
+      setIsLoading(false);
+      return data;
     }
     if (site === 'buscape') {
-      const data = await post(site, category, search, host)
-      setProducts(data)
-      setIsLoading(false)
-      return data
+      const data = await post(site, category, search, host);
+      setProducts(data);
+      setIsLoading(false);
+      return data;
     }
-    const buscape = await post('buscape', category, search, host)
-    const meli = await post('mercado livre', category, search, host)
-    setProducts([...buscape, ...meli])
-    setIsLoading(false)
-  }
+    const buscape = await post('buscape', category, search, host);
+    const meli = await post('mercado livre', category, search, host);
+    setProducts([...buscape, ...meli]);
+    setIsLoading(false);
+  )};
 
   return (
     <div className="div__inputs">
@@ -76,12 +76,12 @@ export default function Inputs () {
         type="button"
         disabled={!category || !site}
         onClick={async () => {
-          setProducts([])
-          await siteSwitch()
+          setProducts([]);
+          await siteSwitch();
         }}
       >
         Search
       </button>
     </div>
-  )
+  );
 }

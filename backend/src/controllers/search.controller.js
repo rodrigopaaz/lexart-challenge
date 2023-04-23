@@ -1,4 +1,4 @@
-const { searchService } = require("../services");
+const { searchService } = require('../services');
 
 const createSearch = async (req, res) => {
   try {
@@ -6,7 +6,7 @@ const createSearch = async (req, res) => {
     const { id } = await searchService.create(searchDescription);
     return res.status(201).json({ searchId: id });
   } catch (error) {
-    return res.status(400).json({ message: "An Error Ocurred" });
+    return res.status(400).json({ message: 'An Error Ocurred' });
   }
 };
 
