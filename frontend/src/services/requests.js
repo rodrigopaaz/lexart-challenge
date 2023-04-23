@@ -1,17 +1,16 @@
-import Axios from "axios";
-
+import Axios from 'axios'
 
 const post = async (site, category, search, host) => {
   try {
     const { data } = await Axios.post(`https://${host}/product`, {
       site,
       category,
-      search,
-    });
-    return JSON.parse(data);
+      search
+    })
+    return JSON.parse(data)
   } catch (error) {
-    return [];
+    return []
   }
-};
+}
 
-export default post;
+export default post
