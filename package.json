@@ -2,5 +2,8 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "mysql2": "^3.2.3"
+  },
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.10.0"
   }
 }
