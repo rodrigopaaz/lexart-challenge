@@ -31,7 +31,7 @@ const FreeMarketProducts = async (
     return product;
   });
   const filteredProducts = allProducts.filter(
-    (e, i) => e.price && typeof e.title && e.imageUrl,
+    (e) => e.price && typeof e.title && e.imageUrl,
   );
 
   return filteredProducts;

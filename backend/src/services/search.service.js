@@ -7,7 +7,6 @@ const findAll = async (description) => {
 };
 
 const create = async (searchDescription) => {
-  console.log(searchDescription, 'to no search service');
   const insertId = await Search.create({
     description: searchDescription,
   });

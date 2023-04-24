@@ -35,9 +35,10 @@ const buscapeProducts = async (
       allProducts.push(product);
       return product;
     }
+    return '';
   });
   const filteredProducts = allProducts.filter(
-    (e, i) => e.price && typeof e.title && e.title.length < 100,
+    (e) => e.price && typeof e.title && e.title.length < 100,
   );
 
   const getValidImage = () => filteredProducts.map(async ({ linkUrl }, i) => {

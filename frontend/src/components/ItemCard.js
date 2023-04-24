@@ -1,8 +1,8 @@
 import React from 'react'
 import '../styles/card.css'
 
-export default function ItemCard ({ product }) {
-  console.log(product)
+export default function ItemCard (item) {
+  const { product } = item
   return (
     <div className="div__item__card">
       <div className="imagem">

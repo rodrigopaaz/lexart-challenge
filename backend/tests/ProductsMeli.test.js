@@ -1,6 +1,11 @@
 const sinon = require('sinon');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const mocha = require('mocha');
+
+const {
+  describe, beforeEach, afterEach, it,
+} = mocha;
 
 const app = require('../src/app');
 

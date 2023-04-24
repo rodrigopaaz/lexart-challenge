@@ -1,8 +1,9 @@
 import Axios from 'axios'
 
 const post = async (site, category, search, host) => {
+  const setHost = host ? `https://${host}` : 'http://localhost:3000'
   try {
-    const { data } = await Axios.post(`https://${host}/product`, {
+    const { data } = await Axios.post(`${setHost}/product`, {
       site,
       category,
       search

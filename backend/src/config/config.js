@@ -1,5 +1,4 @@
-// src/config/config.js
-
+/* eslint-disable global-require */
 require('dotenv').config();
 
 const config = {
@@ -8,13 +7,12 @@ const config = {
   host: process.env.MYSQL_HOST,
   port: process.env.MYSQL_PORT || 3306,
   dialect: 'mysql',
-  // eslint-disable-next-line global-require
   dialectModule: require('mysql2'),
 };
 
-const development = {
-  ...config,
-  database: process.env.MYSQL_DATABASE || 'lexart_database',
+module.exports = {
+  development: {
+    ...config,
+    database: process.env.MYSQL_DATABASE || 'lexart_database',
+  },
 };
-
-export default development;

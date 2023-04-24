@@ -5,7 +5,7 @@ const { createMany } = require('../services/product.service');
 const createProduct = async (req, res) => {
   try {
     const { site, category, search } = req.body;
-    const dataBase = await productService.findAll(search);
+    const dataBase = await productService.findAll();
 
     const checkProduct = dataBase.find((item) => (
       item.search.description === search

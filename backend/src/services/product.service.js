@@ -3,7 +3,7 @@ const {
 } = require('../models');
 const { freeMarketData, buscapeData } = require('./data');
 
-const findAll = (search) => {
+const findAll = () => {
   const data = Product.findAll({
     include: [
       { model: Search, as: 'search' },
