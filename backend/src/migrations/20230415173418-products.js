@@ -1,8 +1,6 @@
-"use strict";
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const Products = queryInterface.createTable("products", {
+    const Products = queryInterface.createTable('products', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,31 +15,31 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: "categories",
-          key: "id",
+          model: 'categories',
+          key: 'id',
         },
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       site_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: "sites",
-          key: "id",
+          model: 'sites',
+          key: 'id',
         },
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       search_id: {
         allowNull: true,
         type: Sequelize.INTEGER,
         references: {
-          model: "search",
-          key: "id",
+          model: 'search',
+          key: 'id',
         },
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       price: {
         allowNull: false,
@@ -60,6 +58,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("products");
+    await queryInterface.dropTable('products');
   },
 };

@@ -1,12 +1,12 @@
-import React, { useMemo, useState } from "react";
-import AppContext from "./Context";
+import React, { useMemo, useState } from 'react'
+import AppContext from './Context'
 
-export default function AppProvider({ children }) {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [category, setCategory] = useState(null);
-  const [search, setSearch] = useState("");
-  const [site, setSite] = useState(null);
+export default function AppProvider ({ children }) {
+  const [products, setProducts] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [category, setCategory] = useState(null)
+  const [search, setSearch] = useState('')
+  const [site, setSite] = useState(null)
   const data = useMemo(
     () => ({
       products,
@@ -18,7 +18,7 @@ export default function AppProvider({ children }) {
       search,
       setSearch,
       site,
-      setSite,
+      setSite
     }),
     [
       products,
@@ -30,11 +30,11 @@ export default function AppProvider({ children }) {
       category,
       setCategory,
       site,
-      setSite,
+      setSite
     ]
-  );
+  )
 
-  return <AppContext.Provider value={data}>{children}</AppContext.Provider>;
+  return <AppContext.Provider value={data}>{children}</AppContext.Provider>
 }
 
-AppProvider.propTypes = {}.isRequired;
+AppProvider.propTypes = {}.isRequired

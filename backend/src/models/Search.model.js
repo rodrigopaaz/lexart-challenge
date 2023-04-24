@@ -5,7 +5,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Site = sequelize.define(
-    "Search",
+    'Search',
     {
       id: {
         allowNull: false,
@@ -18,11 +18,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
     },
-    { timestamps: false, underscored: true, tableName: "search" }
+    { timestamps: false, underscored: true, tableName: 'search' },
   );
 
   Site.associate = (models) => {
-    Site.hasMany(models.Product, { foreignKey: "searchId", as: "search" });
+    Site.hasMany(models.Product, { foreignKey: 'searchId', as: 'search' });
   };
 
   return Site;

@@ -1,20 +1,16 @@
-import Axios from "axios";
+import Axios from 'axios'
 
-const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || 'localhost'
-
-
-const post = async (site, category, search) => {
+const post = async (site, category, search, host) => {
   try {
-    const { data } = await Axios.post(`http://${HOST}:${PORT}/product`, {
+    const { data } = await Axios.post(`https://${host}/product`, {
       site,
       category,
-      search,
-    });
-    return JSON.parse(data);
+      search
+    })
+    return JSON.parse(data)
   } catch (error) {
-    return [];
+    return []
   }
-};
+}
 
-export default post;
+export default post
