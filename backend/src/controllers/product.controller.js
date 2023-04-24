@@ -1,19 +1,17 @@
-const { productService } = require("../services");
-const { Search } = require("../models");
-const { createMany } = require("../services/product.service");
+const { productService } = require('../services');
+const { Search } = require('../models');
+const { createMany } = require('../services/product.service');
 
 const createProduct = async (req, res) => {
   try {
     const { site, category, search } = req.body;
-    const dataBase = await productService.findAll(search);
+    const dataBase = await productService.findAll();
 
-    const checkProduct = dataBase.find((item) => {
-      return (
-        item.search.description === search &&
-        item.categoryName.name === category &&
-        item.siteName.name === site
-      );
-    });
+    const checkProduct = dataBase.find((item) => (
+      item.search.description === search
+        && item.categoryName.name === category
+        && item.siteName.name === site
+    ));
 
     if (!checkProduct) {
       const searchData = await Search.create({
@@ -24,10 +22,9 @@ const createProduct = async (req, res) => {
       return res.status(201).json(data);
     }
     const filteredData = dataBase.filter(
-      (product) =>
-        product.search.description === search &&
-        product.categoryName.name === category &&
-        product.siteName.name === site
+      (product) => product.search.description === search
+        && product.categoryName.name === category
+        && product.siteName.name === site,
     );
     return res.status(201).json(JSON.stringify(filteredData));
   } catch (error) {

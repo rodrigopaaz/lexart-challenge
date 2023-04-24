@@ -1,8 +1,6 @@
-"use strict";
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const Search = queryInterface.createTable("search", {
+    const Search = queryInterface.createTable('search', {
       id: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -18,6 +16,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("search");
+    await queryInterface.dropTable('search');
   },
 };

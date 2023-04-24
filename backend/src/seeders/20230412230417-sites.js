@@ -1,14 +1,18 @@
 module.exports = {
   up: async (queryInterface, _Sequelize) => {
-    await queryInterface.bulkInsert('sites',
+    await queryInterface.bulkInsert(
+      'sites',
       [{
         id: 1,
-        name: 'mercado livre' },
+        name: 'mercado livre',
+      },
       {
         id: 2,
-        name: 'buscape'
+        name: 'buscape',
       },
-      ], { timestamps: false });
+      ],
+      { timestamps: false },
+    );
   },
 
   down: async (queryInterface, _Sequelize) => {

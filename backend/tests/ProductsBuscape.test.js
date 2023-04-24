@@ -9,15 +9,15 @@ const {
 
 const app = require('../src/app');
 
-const meliMock = require('./mocks/meliMock');
+const buscapeMock = require('./mocks/buscapeMock');
 const { Product } = require('../src/models');
 
 chai.use(chaiHttp);
 
 describe('Testing Endpoint Products', () => {
   beforeEach(async () => {
-    sinon.stub(Product, 'findAll').resolves(meliMock);
-    sinon.stub(Product, 'bulkCreate').resolves(meliMock);
+    sinon.stub(Product, 'findAll').resolves(buscapeMock);
+    sinon.stub(Product, 'bulkCreate').resolves(buscapeMock);
   });
   const { expect } = chai;
   let chaiHttpResponse;
@@ -30,12 +30,12 @@ describe('Testing Endpoint Products', () => {
 
   it('Return must be equal to mock file', async () => {
     chaiHttpResponse = await chai.request(app).post('/product').send({
-      site: 'mercado livre',
+      site: 'buscape',
       category: 'tv',
       search: '',
     });
     const product = chaiHttpResponse.body;
     chaiHttpResponse = await chai.request(app).post('/product');
-    expect(JSON.parse(product)).to.be.deep.equal(meliMock);
+    expect(JSON.parse(product)).to.be.deep.equal(buscapeMock);
   });
 });

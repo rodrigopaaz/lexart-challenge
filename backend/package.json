@@ -9,7 +9,6 @@
     "test": "mocha tests/**/*.test.js --exit",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
     "vercel-build": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
-
   },
   "keywords": [],
   "author": "",
@@ -17,6 +16,10 @@
   "devDependencies": {
     "chai": "4.3",
     "chai-http": "4.3",
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "git-commit-msg-linter": "^4.10.0",
     "mocha": "^9.2.1",
     "nodemon": "2.0.15",
     "sequelize": "^6.31.0",

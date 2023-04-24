@@ -1,8 +1,8 @@
-import React from "react";
-import "../styles/card.css";
+import React from 'react'
+import '../styles/card.css'
 
-export default function ItemCard({ product }) {
-  console.log(product);
+export default function ItemCard (item) {
+  const { product } = item
   return (
     <div className="div__item__card">
       <div className="imagem">
@@ -10,7 +10,7 @@ export default function ItemCard({ product }) {
       </div>
       <div>
         <p className="product__title">
-          {product.siteId === 1 ? "Mercado Livre" : "Buscapé"}
+          {product.siteId === 1 ? 'Mercado Livre' : 'Buscapé'}
         </p>
         <div>
           <p>{product.title}</p>
@@ -20,11 +20,11 @@ export default function ItemCard({ product }) {
       <a
         className="link"
         target="_blank"
-        rel={"pro noreferrer"}
+        rel={'pro noreferrer'}
         href={product.linkUrl}
       >
         Ir a web
       </a>
     </div>
-  );
+  )
 }

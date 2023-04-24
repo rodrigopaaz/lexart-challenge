@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define(
-    "Product",
+    'Product',
     {
       id: {
         autoIncrement: true,
@@ -33,14 +33,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
       },
     },
-    { timestamps: false, underscored: true, tableName: "products" }
+    { timestamps: false, underscored: true, tableName: 'products' },
   );
   Product.associate = (models) => {
-    Product.belongsTo(models.Site, { foreignKey: "siteId", as: "siteName" });
-    Product.belongsTo(models.Search, { foreignKey: "searchId", as: "search" });
+    Product.belongsTo(models.Site, { foreignKey: 'siteId', as: 'siteName' });
+    Product.belongsTo(models.Search, { foreignKey: 'searchId', as: 'search' });
     Product.belongsTo(models.Category, {
-      foreignKey: "categoryId",
-      as: "categoryName",
+      foreignKey: 'categoryId',
+      as: 'categoryName',
     });
   };
   return Product;

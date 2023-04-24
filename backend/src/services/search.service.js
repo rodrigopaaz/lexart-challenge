@@ -1,4 +1,4 @@
-const { Search } = require("../models");
+const { Search } = require('../models');
 
 const findAll = async (description) => {
   const data = await Search.findOne({ where: { description } });
@@ -7,7 +7,6 @@ const findAll = async (description) => {
 };
 
 const create = async (searchDescription) => {
-  console.log(searchDescription, "to no search service");
   const insertId = await Search.create({
     description: searchDescription,
   });
