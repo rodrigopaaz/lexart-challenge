@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/card.css'
-
+import { FaExternalLinkAlt } from 'react-icons/fa'
 export default function ItemCard (item) {
   const { product } = item
   return (
@@ -9,13 +9,8 @@ export default function ItemCard (item) {
         <img src={product.imageUrl} alt="productImage" />
       </div>
       <div>
-        <p className="product__title">
-          {product.siteId === 1 ? 'Mercado Livre' : 'Buscapé'}
-        </p>
-        <div>
           <p>{product.title}</p>
           <p>{`R$${product.price}`}</p>
-        </div>
       </div>
       <a
         className="link"
@@ -23,7 +18,7 @@ export default function ItemCard (item) {
         rel={'pro noreferrer'}
         href={product.linkUrl}
       >
-        Ir a web
+         {product.siteId === 1 ? 'Mercado Livre' : 'Buscapé'} <FaExternalLinkAlt />
       </a>
     </div>
   )
