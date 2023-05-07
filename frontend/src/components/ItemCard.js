@@ -10,7 +10,7 @@ export default function ItemCard (item) {
       </div>
       <div>
           <p>{product.title}</p>
-          <p>{`R$${product.price}`}</p>
+          <p>{`${product.price}`}</p>
       </div>
       <a
         className="link"

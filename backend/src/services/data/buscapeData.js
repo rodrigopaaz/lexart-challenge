@@ -1,11 +1,8 @@
-const { default: axios } = require('axios');
+const axios = require('axios');
 const cheerio = require('cheerio');
 const { Category } = require('../../models');
 
-const buscapeProducts = async (
-  category,
-  { id: searchId, description: search },
-) => {
+const buscapeProducts = async (category, { id: searchId, description: search }) => {
   const buscapeCategory = `search?q=${category} ${search}`;
   const siteUrl = 'https://buscape.com.br';
   const { data } = await axios.get(`${siteUrl}/${buscapeCategory}`);
@@ -23,39 +20,33 @@ const buscapeProducts = async (
         siteId: 2,
         searchId,
         price: $(i)
-          .find(
-            'a .SearchCard_ProductCard_Description__fGXI3 .Text_Text__h_AF6.Text_MobileHeadingS__Zxam2',
-          )
-          .text()
-          .slice(3)
-          .split('R$')[0]
-          .split(',00')[0],
+          .find('a .SearchCard_ProductCard_Description__fGXI3 .Text_Text__h_AF6.Text_MobileHeadingS__Zxam2')
+          .text(),
         linkUrl: siteUrl + getLink,
       };
       allProducts.push(product);
-      return product;
     }
-    return '';
   });
+
   const filteredProducts = allProducts.filter(
-    (e) => e.price && typeof e.title && e.title.length < 100,
+    (product) => product.price && typeof product.title === 'string' && product.title.length < 100,
   );
 
-  const getValidImage = () => filteredProducts.map(async ({ linkUrl }, i) => {
-    const fileData = await axios.get(linkUrl); //
+  const getValidImage = async (product) => {
+    const fileData = await axios.get(product.linkUrl);
     const $$ = cheerio.load(fileData.data);
     const imageSrc = $$('.ProductPageBody_ContentBody__De_1M')
       .find('div:nth-child(2) img')
       .attr('src');
-    const newArray = {
-      ...filteredProducts[i],
+    return {
+      ...product,
       imageUrl: imageSrc,
     };
-    return newArray;
-  });
+  };
 
-  const images = await Promise.all(getValidImage());
+  const images = await Promise.all(filteredProducts.map(getValidImage));
 
   return images;
 };
+
 module.exports = buscapeProducts;

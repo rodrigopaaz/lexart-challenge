@@ -1,7 +1,8 @@
 const {
   Product, Search, Category, Site,
 } = require('../models');
-const { freeMarketData, buscapeData } = require('./data');
+const { freeMarketData, buscapeData, siteFactory } = require('./data');
+const site = require('./data/sites/sites');
 
 const findAll = () => {
   const data = Product.findAll({
@@ -14,9 +15,11 @@ const findAll = () => {
   return data;
 };
 
-const createMany = async (site, category, search) => {
-  const getData = site === 'buscape' ? buscapeData : freeMarketData;
-  const data = await getData(category, search);
+const createMany = async (siteName, category, search) => {
+  const siteData = site[siteName](category, search, siteName);
+  /*   const getData = siteFactory(siteData); */
+  const data = await siteFactory(siteData);
+  console.log(data);
   Product.bulkCreate(data);
   return JSON.stringify(data);
 };
